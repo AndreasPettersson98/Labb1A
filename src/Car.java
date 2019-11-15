@@ -1,17 +1,14 @@
 import java.awt.*;
 
-
-
-
 public abstract class Car implements Movable {
+
     /**
      * Possible directions of the car
      */
+
     enum Direction{
         UP, DOWN, RIGHT, LEFT
     }
-
-
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -42,41 +39,12 @@ public abstract class Car implements Movable {
         this.x = x;
         this.y = y;
         this.dir = dir.RIGHT;
-
-        
     }
-
-
-
-    public double getX() {
-        return x;
-    }
-
-
-    public double getY() {
-        return y;
-    }
-
-    public Direction getDir() {
-        return dir;
-    }
-
-    public double getEnginePower() {
-        return enginePower;
-    }
-
-    public double getCurrentSpeed() {
-        return currentSpeed;
-    }
-
-
-
-
-
 
     /**
      * The cars moving  direction depending on its position and current speed.
      */
+
     @Override
     public void move() {
         switch (dir) {
@@ -99,6 +67,7 @@ public abstract class Car implements Movable {
     /**
      * How the cars turn left depending on its moving direction.
      */
+
     @Override
     public  void turnLeft() {
         switch (dir) {
@@ -116,9 +85,11 @@ public abstract class Car implements Movable {
                 break;
         }
     }
+
     /**
      * How the cars turn right depending on its moving direction.
      */
+
     @Override
     public void turnRight() {
         switch (dir) {
@@ -143,20 +114,26 @@ public abstract class Car implements Movable {
      */
 
     protected abstract double speedFactor();
+
     /**
-     * Methods for starting and stopping the engine.
+     * starts the engine
      */
 
     public void startEngine() {
         currentSpeed = 0.1;
     }
 
+    /**
+     * stops the engine
+     */
+
     public void stopEngine() {
         currentSpeed = 0;
     }
 
     /**
-     * Methods to gas or break the car with the amount between 0 and 1
+     * method to gas the car
+     * @param amount speed factor
      */
 
     public void gas(double amount){
@@ -164,7 +141,10 @@ public abstract class Car implements Movable {
             incrementSpeed(amount);
     }
 
-
+    /**
+     * method to brake the car
+     * @param amount speed factor
+     */
 
     public void brake(double amount){
         if(amount >= 0 && amount <= 1)
@@ -172,20 +152,41 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * Methods for incrementing and decrementing the speed which are helper methods to gas and break.
+     * increments speed through gas
+     * @param amount speed factor
      */
 
-    /**
-     *
-     * @param amount
-     */
     private void incrementSpeed(double amount){
         currentSpeed = (Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
     }
+
+    /**
+     * decrements speed through brake
+     * @param amount speed factor
+     */
 
     private void decrementSpeed(double amount){
         currentSpeed = (Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
     }
 
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public Direction getDir() {
+        return dir;
+    }
+
+    public double getEnginePower() {
+        return enginePower;
+    }
+
+    public double getCurrentSpeed() {
+        return currentSpeed;
+    }
 }

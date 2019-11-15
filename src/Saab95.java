@@ -6,11 +6,7 @@ import java.awt.*;
  */
 public class Saab95 extends Car{
 
-    /**
-     * A boolean instance variable that can true or false if the turbo should be used or not
-     */
     public boolean turboOn;
-
 
     /**
      * A constructor that sets data to a Saab95 when created from its super class Car
@@ -24,6 +20,7 @@ public class Saab95 extends Car{
     /**
      * Method that sets the turbo on
      */
+
     public void setTurboOn(){
         turboOn = true;
     }
@@ -38,6 +35,7 @@ public class Saab95 extends Car{
     /**
      *Helper method for the methods that increments/decrements speed.
      */
+
     @Override
     public double speedFactor(){
         double turbo = 1;

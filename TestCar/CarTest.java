@@ -87,7 +87,7 @@ public class CarTest {
     }
     @Test
     public void testMoveSaab() {
-        Saab95 saab = new Saab95(0,10,10);
+        Saab95 saab = new Saab95(,10,10);
         saab.setCurrentSpeed(5);
         saab.move();
         assertEquals(15,saab.getX(),0);

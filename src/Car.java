@@ -11,9 +11,7 @@ public abstract class Car implements Movable {
         UP, DOWN, RIGHT, LEFT
     }
 
-    /**
-     * Instance variables
-     */
+
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -45,13 +43,8 @@ public abstract class Car implements Movable {
         this.y = y;
         this.dir = dir.RIGHT;
 
-        stopEngine();
+        
     }
-
-    /**
-     * Setters and Getters.
-     */
-
 
 
 
@@ -59,26 +52,14 @@ public abstract class Car implements Movable {
         return x;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
 
     public double getY() {
         return y;
     }
 
-    public void setY(double y) {
-        this.y = y;
-    }
-
     public Direction getDir() {
         return dir;
     }
-
-    public void setDir(Direction dir) {
-        this.dir = dir;
-    }
-
 
     public double getEnginePower() {
         return enginePower;
@@ -89,9 +70,8 @@ public abstract class Car implements Movable {
     }
 
 
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
-    }
+
+
 
 
     /**
@@ -101,16 +81,16 @@ public abstract class Car implements Movable {
     public void move() {
         switch (dir) {
             case UP:
-                setY(y - currentSpeed);
+                y -= currentSpeed;
                 break;
             case DOWN:
-                setY(y + currentSpeed);
+                y += currentSpeed;
                 break;
             case RIGHT:
-                setX(x + currentSpeed);
+                x += currentSpeed;
                 break;
             case LEFT:
-                setX(x - currentSpeed);
+                x -= currentSpeed;
                 break;
         }
 
@@ -123,16 +103,16 @@ public abstract class Car implements Movable {
     public  void turnLeft() {
         switch (dir) {
             case UP:
-                setDir(Direction.LEFT);
+                dir = Direction.LEFT;
                 break;
             case DOWN:
-                setDir(Direction.RIGHT);
+                dir = Direction.RIGHT;
                 break;
             case LEFT:
-                setDir(Direction.DOWN);
+                dir = Direction.DOWN;
                 break;
             case RIGHT:
-                setDir(Direction.UP);
+                dir = Direction.UP;
                 break;
         }
     }
@@ -143,16 +123,16 @@ public abstract class Car implements Movable {
     public void turnRight() {
         switch (dir) {
             case UP:
-                setDir(Direction.RIGHT);
+                dir = Direction.RIGHT;
                 break;
             case DOWN:
-                setDir(Direction.LEFT);
+                dir = Direction.LEFT;
                 break;
             case LEFT:
-                setDir(Direction.UP);
+                dir = Direction.UP;
                 break;
             case RIGHT:
-                setDir(Direction.DOWN);
+                dir = Direction.DOWN;
                 break;
 
         }
@@ -195,13 +175,16 @@ public abstract class Car implements Movable {
      * Methods for incrementing and decrementing the speed which are helper methods to gas and break.
      */
 
-
+    /**
+     *
+     * @param amount
+     */
     private void incrementSpeed(double amount){
-        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
+        currentSpeed = (Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
     }
 
     private void decrementSpeed(double amount){
-        setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
+        currentSpeed = (Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
     }
 
 

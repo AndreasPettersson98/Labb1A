@@ -43,7 +43,7 @@ public abstract class Car implements Movable {
         this.y = y;
         this.dir = dir.RIGHT;
 
-        
+
     }
 
 

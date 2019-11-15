@@ -71,8 +71,7 @@ public class CarTest {
 
      @Test
     public void testMoveVolvo() {
-        Volvo240 volvo = new Volvo240(0,10,10);
-        volvo.setCurrentSpeed(5);
+        Volvo240 volvo = new Volvo240(5,10,10);
         volvo.move();
         assertEquals(15,volvo.getX(),0);
         volvo.turnLeft();
@@ -87,8 +86,7 @@ public class CarTest {
     }
     @Test
     public void testMoveSaab() {
-        Saab95 saab = new Saab95(,10,10);
-        saab.setCurrentSpeed(5);
+        Saab95 saab = new Saab95(5,10,10);
         saab.move();
         assertEquals(15,saab.getX(),0);
         saab.turnLeft();
@@ -129,8 +127,7 @@ public class CarTest {
 
     @Test
     public void testBrakeVolvo() {
-        Volvo240 volvo = new Volvo240(0,2,2);
-        volvo.setCurrentSpeed(10);
+        Volvo240 volvo = new Volvo240(10,2,2);
         volvo.brake(-1);
         assertEquals(10, volvo.getCurrentSpeed(),0);
         volvo.brake(2);
@@ -143,8 +140,7 @@ public class CarTest {
 
     @Test
     public void testBrakeSaab() {
-        Saab95 saab = new Saab95(0,2,2);
-        saab.setCurrentSpeed(10);
+        Saab95 saab = new Saab95(10,2,2);
         saab.setTurboOn();
         saab.brake(-1);
         assertEquals(10, saab.getCurrentSpeed(),0);
@@ -156,64 +152,6 @@ public class CarTest {
         assertEquals(7.8875, saab.getCurrentSpeed(),0);
     }
 
-
-    @Test
-    public void testGetX() {
-        Volvo240 volvo = new Volvo240(0,4,6);
-        assertEquals(4, volvo.getX(),0);
-    }
-
-    @Test
-    public void testSetX() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        volvo.setX(5);
-        assertEquals(5,volvo.getX(),0);
-    }
-
-    @Test
-    public void testGetY() {
-        Volvo240 volvo = new Volvo240(0,4,6);
-        assertEquals(6,volvo.getY(),0);
-    }
-
-    @Test
-    public void testSetY() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        volvo.setY(8);
-        assertEquals(8,volvo.getY(),0);
-    }
-
-    @Test
-    public void testGetDir() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        assertTrue(Car.Direction.RIGHT==volvo.getDir());
-    }
-
-    @Test
-    public void testSetDir() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        volvo.setDir(Car.Direction.LEFT);
-        assertTrue(Car.Direction.LEFT== volvo.getDir());
-    }
-
-    @Test
-    public void getEnginePower() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        assertEquals(100,volvo.getEnginePower(),0);
-    }
-
-    @Test
-    public void getCurrentSpeed() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        assertEquals(0, volvo.getCurrentSpeed(),0);
-    }
-
-    @Test
-    public void setCurrentSpeed() {
-        Volvo240 volvo = new Volvo240(0,0,0);
-        volvo.setCurrentSpeed(70);
-        assertEquals(70, volvo.getCurrentSpeed(),0);
-    }
 
     @Test
     public void speedFactor() {

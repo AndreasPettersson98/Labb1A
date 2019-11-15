@@ -25,7 +25,14 @@ public abstract class Car implements Movable {
     private Direction dir; // Variable for the cars directions
 
     /**
-     * Constructor
+     *
+     * @param nrDoors Number of doors
+     * @param enginePower Power of engine
+     * @param currentSpeed Current speed of the car
+     * @param color Color of the car
+     * @param modelName Model name of car
+     * @param x X- coordinate
+     * @param y Y- coordinate
      */
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, double x, double y) {

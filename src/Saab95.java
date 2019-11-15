@@ -9,7 +9,10 @@ public class Saab95 extends Car{
     public boolean turboOn;
 
     /**
-     * A constructor that sets data to a Saab95 when created from its super class Car
+     *
+     * @param currentSpeed current speed of the car
+     * @param x coordinate x
+     * @param y coordinate y
      */
 
     public Saab95(double currentSpeed, double x, double y){

@@ -110,7 +110,8 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * Abstract method to be able to override the specific speedFactor methods from the sub classes
+     * abstract method used by gas and break
+     * @return speed factor
      */
 
     protected abstract double speedFactor();

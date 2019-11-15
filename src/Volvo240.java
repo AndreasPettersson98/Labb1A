@@ -9,7 +9,10 @@ public class Volvo240 extends Car{
     private final static double trimFactor = 1.25;
 
     /**
-     * A constructor that sets data to a Volvo240 when created from its super class Car
+     *
+     * @param currentSpeed current speed of the cad
+     * @param x coordinate x
+     * @param y coordinate y
      */
 
     public Volvo240( double currentSpeed, double x, double y){

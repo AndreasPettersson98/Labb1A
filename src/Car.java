@@ -39,6 +39,8 @@ public abstract class Car implements Movable {
         this.x = x;
         this.y = y;
         this.dir = dir.RIGHT;
+
+        stopEngine();
     }
 
     /**
